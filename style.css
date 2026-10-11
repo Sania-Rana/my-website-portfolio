@@ -1,0 +1,352 @@
+body{
+    background-color:lightblue;
+}
+nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: white;
+    position: sticky;
+top: 0;
+}
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+z-index: 1000;
+.nav-links{
+    display:flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.nav-links a{
+    text-decoration: none;
+    color: black;
+}
+.nav-links a:hover{
+    color:blue;
+}
+.nav-links a.active{
+    color: darkblue;
+    font-weight: bold;
+}
+.join-btn{
+    background-color: darkblue;
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+.join-btn:hover{
+    background-color: blue;
+}
+@media(max-width:600px){
+    nav{
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo{
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links{
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+    }
+}
+/*What problem does flex wrap solve in this layout?
+Answer:flex-wrap allows navigation items to move onto another line when there is not enough available space.For preventing horizontal scrolling.
+*/
+/* Course Card */
+
+.course-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+}
+.course-card button {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+}
+.course-card h2 {
+    margin-top: 0;
+}
+/* Course Card Hover Effect */
+
+.course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+}
+/* Medium screens */
+@media (max-width: 900px) {
+
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Small screens */
+@media (max-width: 600px) {
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/*
+Why is CSS Grid more suitable than manually assigning
+a fixed width and position to every card?
+
+Answer: CSS Grid automatically arranges the cards into
+rows and columns and makes the layout responsive.
+It is easier to manage and adapts to different screen
+sizes without manually positioning every card.
+*/
+.product-section {
+    padding: 40px 20px;
+}
+
+.product-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Product card */
+.product-card {
+    width: 320px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+   ========================= */
+
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   SALE BADGE
+   ========================= */
+
+.sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    background-color: red;
+    color: white;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   PRODUCT DETAILS
+   ========================= */
+
+.product-details {
+    padding: 20px;
+}
+
+.product-category {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.product-details h3 {
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   PRICE
+   ========================= */
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.old-price {
+    color: gray;
+    text-decoration: line-through;
+}
+
+
+/* =========================
+   RATING
+   ========================= */
+
+.rating {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+
+/* =========================
+   ADD TO CART BUTTON
+   ========================= */
+
+.cart-btn {
+    width: 100%;
+    padding: 12px;
+
+    background-color: darkblue;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.cart-btn:hover {
+    background-color: blue;
+}
+/*
+1. Why is object-fit useful when displaying
+   user-uploaded or product images?
+
+Answer: object-fit keeps the image inside the
+fixed image area without stretching or distorting
+the image.
+*/
+
+/*
+2. Why should the parent of the SALE badge
+   normally have position: relative?
+
+Answer: position: relative makes the parent
+the positioning reference for the absolutely
+positioned SALE badge. This keeps the badge
+inside the product image area.
+*/
+/* =========================
+   PART D - HELP BUTTON
+   ========================= */
+
+.help-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: darkblue;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+/* Part D - Notification Badge */
+
+.notification {
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    background-color: red;
+    color: white;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.concept-check {
+    padding: 40px 20px;
+}
+
+.concept-check h2 {
+    text-align: center;
+}
+
+.concept-check table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.concept-check th,
+.concept-check td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.concept-check th {
+    background-color: lightblue;
+}
